@@ -6,12 +6,10 @@
 **Data** <br />
 We worked together to research and discuss our topic a bit before we began to collect data. Using our background knowledge that we had gained, we began to search for datasets that would summarize the purpose of our project well. 
 
-**Health Insurance Coverage**
-https://www.kaggle.com/hhs/health-insurance
+[**Health Insurance Coverage**](https://www.kaggle.com/hhs/health-insurance)
 This dataset is from Kaggle and contains coverage data for both before and after the Affordable Care Act, or the ACA. It will be able to give us an informed picture of health insurance coverage in the US, and teach us about the ACA, which will be useful when we are searching for resources for our users.
 
-**Global Health Expenditure Database**
-https://apps.who.int/nha/database
+[**Global Health Expenditure Database**](https://apps.who.int/nha/database)
 We found this dataset on the World Health Organization website. It contains worldwide data that summarizes how much different countries are spending on healthcare. The website includes this list of the contributions of this data:
 - How much do different countries spend on health?
 - How much do different actors such as government, insurance companies, households and donors contribute?
