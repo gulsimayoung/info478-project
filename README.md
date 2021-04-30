@@ -1,5 +1,5 @@
 # Project Proposal
-## What is the purpose of your research project?
+**What is the purpose of your research project?**
 
 ## What other research has been done in this area? Make sure to include 3+ links to related works, as well as a summary of what that work has discovered.
 
