@@ -1,8 +1,8 @@
 # Project Proposal
-**What is the purpose of your research project?** <br \>
+**What is the purpose of your research project?** <br />
 Health insurance in the United States is complicated and not very user-friendly.  With our research project, we hope to present information in an accessible way in order to highlight certain trends in US health insurance and how it differs from the system in other countries.  In doing this, our goal is to increase understanding of how our healthcare system works and how best to navigate it.
 
-**What other research has been done in this area? Make sure to include 3+ links to related works, as well as a summary of what that work has discovered.** <br \>
+**What other research has been done in this area? Make sure to include 3+ links to related works, as well as a summary of what that work has discovered.** <br />
 [**“Infants without health insurance: Racial/ethnic and rural/urban disparities in infant households’ insurance coverage.”**](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6980480/)
 This study explores trends in health coverage rates of households with infants in the United States according to their location (rural/urban), race and ethnicity, income level, and whether the state has expanded Medicaid coverage.
 
