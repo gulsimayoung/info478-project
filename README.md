@@ -1,7 +1,16 @@
 # Project Proposal
-**What is the purpose of your research project?**
+**What is the purpose of your research project?** <br \>
+Health insurance in the United States is complicated and not very user-friendly.  With our research project, we hope to present information in an accessible way in order to highlight certain trends in US health insurance and how it differs from the system in other countries.  In doing this, our goal is to increase understanding of how our healthcare system works and how best to navigate it.
 
-**What other research has been done in this area? Make sure to include 3+ links to related works, as well as a summary of what that work has discovered.**
+**What other research has been done in this area? Make sure to include 3+ links to related works, as well as a summary of what that work has discovered.** <br \>
+[**“Infants without health insurance: Racial/ethnic and rural/urban disparities in infant households’ insurance coverage.”**](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6980480/)
+This study explores trends in health coverage rates of households with infants in the United States according to their location (rural/urban), race and ethnicity, income level, and whether the state has expanded Medicaid coverage.
+
+[**“Lifetime consequences of early life and midlife access to health insurance: a review.”**](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7081716/)
+This article documents associations between health insurance status and patient outcomes in the United States.
+
+[**“Leaving no one behind? Social inclusion of health insurance in low- and middle-income countries: a systematic review.”**](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6714392/)
+This review examines other studies that focus on forms of universal health insurance in low- and middle-income and how they affect healthcare costs and outcomes.  The review found that more data was available for some groups (chronically ill and older adults) than others (ethnic minorities, female-headed households, individuals with disabilities, and refugees), which suggests some future directions for research.
 
 **Data** <br />
 We worked together to research and discuss our topic a bit before we began to collect data. Using our background knowledge that we had gained, we began to search for datasets that would summarize the purpose of our project well. 
