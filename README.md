@@ -3,7 +3,7 @@
 
 **What other research has been done in this area? Make sure to include 3+ links to related works, as well as a summary of what that work has discovered.**
 
-**Data**
+**Data** <br />
 We worked together to research and discuss our topic a bit before we began to collect data. Using our background knowledge that we had gained, we began to search for datasets that would summarize the purpose of our project well. 
 
 **Health Insurance Coverage**
@@ -20,21 +20,21 @@ We found this dataset on the World Health Organization website. It contains worl
 - How much money is spent on different diseases and programmes such as immunization?
 - How much money is spent on the less than 5-year old population?
 
-**Who is your target audience?  Depending on the domain of your data, there may be a variety of audiences interested in using the dataset. You should hone in on one of these audiences.**
+**Who is your target audience?  Depending on the domain of your data, there may be a variety of audiences interested in using the dataset. You should hone in on one of these audiences.** <br />
 We want our project to serve as a resource for the general public, and especially lower income communities and individuals. This will help us to communicate important information about the ways in which health insurance in the United States is flawed.
 
-**What should your audience learn from your resource? Please consider specific questions that your project can answer using the data you have identified (that are related to the overarching purpose)**
+**What should your audience learn from your resource? Please consider specific questions that your project can answer using the data you have identified (that are related to the overarching purpose)** <br />
 We hope that our audience is able to learn about certain trends that exist that highlight health insurance in the United States when contextualized through the lens of global health insurance. We also intend to provide a page of other resources that will guide users towards websites and services that will help them to better set up and manage health insurance for them and their families.
 
-**What will be the format of your final product (Shiny app, HTML page, compiled .Rmd file, etc)?**
+**What will be the format of your final product (Shiny app, HTML page, compiled .Rmd file, etc)?** <br />
 Shiny app
 
-**Do you anticipate any specific data collection / data management challenges?**
+**Do you anticipate any specific data collection / data management challenges?** <br />
 The WHO data is very large, it might be difficult (at least at first) to manage all of the variables and pieces that it presents.
 
-**What new technical skills will need to learn in order to complete your project?**
+**What new technical skills will need to learn in order to complete your project?** <br />
 We mainly need to review techniques learned in INFO 201 for creating visualizations and constructing a Shiny app.
 
-**What major challenges do you anticipate?**
+**What major challenges do you anticipate?** <br />
 We anticipate that we may have issues with multiple people working on one project in R. We hope to be extra careful with this and avoid merge errors as much as we can. In terms of the project content, it may be a challenge to approach the data from an unbiased perspective, as we all have pre existing experiences with and opinions of the health insurance system in the United States.
 
