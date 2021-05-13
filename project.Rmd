@@ -1,0 +1,13 @@
+---
+title: "project.Rmd"
+author: "Laurel Safranek, Salma Mohamed, Gulsima Young"
+output:
+  prettydoc::html_pretty:
+    theme: hpstr
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("analysis.R")
+```
+
