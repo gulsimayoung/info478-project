@@ -1,0 +1,106 @@
+---
+title: "Exploratory Analysis"
+author: "Laurel Safranek, Salma Mohamed, Gulsima Young"
+output:
+  prettydoc::html_pretty:
+    theme: hpstr
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("analysis.R")
+```
+
+## Distribution of Variables
+
+---
+
+One of the main variables that we are interested in focusing on for our project
+is the `che_gdp` column of the Global Health Expenditure Database. This metric
+stands for Current Health Expenditure (CHE) as percentage of Gross Domestic 
+Product (GDP) (%). This is often referred to as the CHE%GDP. The CHE value 
+explains how much a country is spending on health-related expenditures. 
+
+When we measure this as a percent of a country's overall GDP, we are able to 
+learn how much money the country is actively allocating towards health related 
+funding and costs. Overall, this gives us a sense of how various countries 
+prioritize public health.
+
+```{r che_gdp_table, echo = FALSE, warning = FALSE, message = FALSE}
+che_gdp_table <- GHED_data %>%
+  select(country, year, che_gdp)
+
+che_gdp_filter <- che_gdp_table %>%
+  filter(country == "Algeria" | country == "Ghana" |
+           country == "Canada" | country == "Haiti" | country == "France" | 
+           country == "Germany" | country == "United States of America" |
+           country == "Iraq" | country == "Pakistan" | country == "Australia") %>%
+  filter(year == "2018")
+
+che_gdp_df <- data.frame(country = che_gdp_filter$country, year = che_gdp_filter$year,
+                         che_gdp = che_gdp_filter$che_gdp)
+
+ggplot(data = che_gdp_df, aes(x = country, y = che_gdp)) +
+   geom_bar(stat = "identity", fill = "cornflowerblue") +
+   labs(
+      title = "Current Health Expenditure as Percentage of GDP in 2018",
+      subtitle = "",
+      x = "Country",
+      y = "Current Health Expenditure as Percentage of GDP"
+   ) +
+   theme(axis.text.x = element_text(angle = 20))
+```
+
+---
+
+```{r}
+# Visualization 2
+```
+
+
+## Relationships Between Variables
+
+---
+
+In order to discover relationships between variables in the context of our
+project, we decided to further analyze the CHE%GDP value by comparing it with
+the `year` variable. This allowed us to make predictions about how the CHE%GDP
+would fluctuate, grow, or decline over time. We predicted that the CHE%GDP
+would grow steadily over time, with a couple of shifts based upon various
+health and economic related global events.
+
+Though this graph does show a slight upward trend over time, it was not nearly
+as drastic as we thought. However, this is still vital information to have
+as we continue to dissect and examine our data in order to search for trends
+and answers to the questions that we have.
+
+```{r year_vs_che_gdp_table, echo = FALSE, warning = FALSE, message = FALSE}
+year_vs_che_gdp_table <- GHED_data %>%
+  select(country, year, che_gdp)
+
+che_gdp_filter <- year_vs_che_gdp_table %>%
+  filter(country == "Algeria" | country == "Ghana" |
+           country == "Canada" | country == "Haiti" | country == "France" | 
+           country == "Germany" | country == "United States of America" |
+           country == "Iraq" | country == "Pakistan" | country == "Australia")
+
+che_gdp_year_df <- data.frame(country = che_gdp_filter$country, 
+                              year = che_gdp_filter$year, che_gdp = 
+                                che_gdp_filter$che_gdp)
+
+ggplot(che_gdp_year_df, aes(year, che_gdp, color = country)) +
+   geom_point(mapping = aes(x = year, y = che_gdp, color = country)) +
+   labs(
+      title = "Current Health Expenditure as Percentage of GDP Over Time",
+      subtitle = "",
+      x = "Country",
+      y = "Current Health Expenditure as Percentage of GDP"
+   ) +
+   theme(axis.text.x = element_text(angle = 20))
+```
+
+---
+
+```{r}
+# Visualization 2
+```
