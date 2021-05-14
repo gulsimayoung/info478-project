@@ -4,6 +4,6 @@ library(ggplot2)
 library(readxl)
 library(prettydoc)
 
-health_insurance_coverage <- read.csv("states.csv")
+health_insurance_coverage <- read.csv("data/states.csv")
 
-global_database <- read_excel("GHED_data.XLSX")
+GHED_data <- read_excel("data/GHED_data.XLSX")
