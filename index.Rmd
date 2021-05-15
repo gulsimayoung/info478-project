@@ -51,10 +51,35 @@ ggplot(data = che_gdp_df, aes(x = country, y = che_gdp)) +
    theme(axis.text.x = element_text(angle = 20))
 ```
 
+
 ---
 
-```{r}
-# Visualization 2
+In the U.S. Health Insurance Coverage database, one of the main variables we are focusing on is the uninsurance rate.  The uninsurance rate is the percentage of residents in a certain area who are not covered by health insurance (government or private). This database spans the time period directly before and after the Affordable Care Act was implemented. Therefore analyzing the change in uninsurance rate is useful in determining the impact (if any) that the legislation had on this metric in order to guide future lawmaking. 
+
+This visualization shows the uninsurance rate in a selection of states, as well as the United States as a whole, in 2010 (before the ACA) and 2015 (after the ACA).  Across the all regions seen here, the uninsurance rate decrease after the Affordable Care Act was put in place.  
+
+```{r uninsured_by_state, echo = FALSE, warning = FALSE, message = FALSE}
+uninsured_2010 <- as.numeric(str_trim(
+                  str_remove(health_insurance_coverage$uninsured_2010, "%")))
+uninsured_2015 <- as.numeric(str_trim(
+  str_remove(health_insurance_coverage$uninsured_2015, "%")))
+
+health_insurance <- data.frame(State=health_insurance_coverage$State,
+                               uninsured_2010, uninsured_2015) %>%
+  filter(State == "Alaska " | State == "California" | State == "Nevada" |
+           State == "Massachusetts" | State == "Iowa " | State == "Hawaii" |
+           State == "United States" | State == "Kentucky" | State == "Florida ") %>%
+  pivot_longer(
+    cols = starts_with("uninsured_"),
+    names_to = "Year",
+    values_to = "uninsured"
+  )
+
+ggplot(data=health_insurance, aes(x=State, y=uninsured)) +
+  geom_col(aes(fill=Year), position=position_dodge(), width=0.9) +
+  labs(title="Uninsurance Rate by State, Compared Across Years", subtitle = "", y="Uninsurance Rate (%)") +
+  theme(axis.text.x = element_text(angle = 20)) +
+  scale_fill_discrete(labels = c('2010','2015'))
 ```
 
 
@@ -99,8 +124,27 @@ ggplot(che_gdp_year_df, aes(year, che_gdp, color = country)) +
    theme(axis.text.x = element_text(angle = 20))
 ```
 
----
 
-```{r}
-# Visualization 2
+---
+As part of the Affordable Care Act, the eligibility criteria for Medicaid were expanded to include more people.  Each state could decide whether to expand Medicaid for its residents, with the federal government supplying some to all of the funding for this expansion for a period of a several years.  Ultimately, some states expanded Medicaid, while other states did not.  
+
+Here, we compare the percentage of residents without health insurance coverage in states that did expand Medicaid and states that did not.  We can see that in states which opted to increase Medicaid eligibility criteria, less people ended up being uninsured, possibly because they were able to be covered by Medicaid.
+
+```{r medicaid_expansion_chart, echo = FALSE, warning = FALSE, message = FALSE}
+medicaid <- health_insurance_coverage$expansion
+uninsured_2015_stripped <- as.numeric(str_trim(
+  str_remove(health_insurance_coverage$uninsured_2015, "%")))
+
+df <- data.frame(uninsured_2015_stripped, medicaid) %>%
+  filter(medicaid == "True" | medicaid == "False") %>%
+  group_by(medicaid) %>%
+  summarise(uninsured=mean(uninsured_2015_stripped))
+
+
+ggplot(data=df, aes(x=uninsured, y=medicaid)) +
+  geom_col(fill="cornflowerblue", width=0.5) +
+  labs(title="Medicaid Expansion vs. Percent Uninsured",
+       y="Medicaid Expansion", x="Uninsured in 2015 (%)")
+
 ```
+
