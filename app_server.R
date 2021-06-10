@@ -41,4 +41,23 @@ server <- function(input, output) {
       )
     ggplotly(p)
   })
+  
+  output$chart3 <- renderPlotly({
+    country_data <- GHED_data %>%
+      filter(year == input$year_3) %>%
+      filter(country == "United States of America" | country == input$country_4)
+    
+    GHED_data_che_gdp <- country_data %>%
+      summarize(year, country, che_pc_usd, .groups = "drop")
+    
+    p <- ggplot(GHED_data_che_gdp) +
+      geom_bar(stat='identity', fill = "deeppink",
+               mapping = aes(x = country, y = che_pc_usd)) +
+      labs(
+        title = "Comparing CHE per Capita Across Countries",
+        x = "Year",
+        y = "CHE per Capita in USD"
+      )
+    ggplotly(p)
+  })
 }
