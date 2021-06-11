@@ -3,8 +3,13 @@ library(shiny)
 library(plotly)
 library(ggplot2)
 library(stringr)
+<<<<<<< HEAD
 
 # GHED_data <- read_excel("data/GHED_data.XLSX")
+=======
+library(usmap)
+GHED_data <- read_excel("data/GHED_data.XLSX")
+>>>>>>> 22d6a0e05e95716baf5796378d67f13bcefe9aca
 unique_countries <- unique(GHED_data$country)
 # health insurance coverage data
 health_insurance_coverage <- read.csv("data/states.csv")
@@ -21,8 +26,22 @@ uninsured_2010 <- as.numeric(str_trim(
   str_remove(health_insurance_coverage$uninsured_2010, "%")
 ))
 uninsured_2015 <- as.numeric(str_trim(
+<<<<<<< HEAD
   str_remove(health_insurance_coverage$uninsured_2015, "%")
 ))
+=======
+  str_remove(health_insurance_coverage$uninsured_2015, "%")))
+
+medicaid <- health_insurance_coverage$expansion
+uninsured_2015_stripped <- as.numeric(str_trim(
+  str_remove(health_insurance_coverage$uninsured_2015, "%")))
+
+df <- data.frame(uninsured_2015_stripped, medicaid) %>%
+  filter(medicaid == "True" | medicaid == "False") %>%
+  group_by(medicaid) %>%
+  summarise(uninsured=mean(uninsured_2015_stripped))
+
+>>>>>>> 22d6a0e05e95716baf5796378d67f13bcefe9aca
 # map data cleaning
 map_data <- health_insurance_coverage %>%
   select(State, uninsured_2015, expansion) %>%
@@ -122,6 +141,7 @@ server <- function(input, output) {
   })
 
   output$medicaid_bar <- renderPlotly({
+<<<<<<< HEAD
     medicaid <- health_insurance_coverage$expansion
     uninsured_2015_stripped <- as.numeric(str_trim(
       str_remove(health_insurance_coverage$uninsured_2015, "%")
@@ -139,6 +159,13 @@ server <- function(input, output) {
         title = "Medicaid Expansion vs. Percent Uninsured",
         y = "Medicaid Expansion", x = "Uninsured in 2015 (%)"
       )
+=======
+
+      ggplot(data=df, aes(x=uninsured, y=medicaid)) +
+      geom_col(fill="cornflowerblue", width=0.5) +
+      labs(title="Medicaid Expansion vs. Percent Uninsured",
+           y="Medicaid Expansion", x="Uninsured in 2015 (%)")
+>>>>>>> 22d6a0e05e95716baf5796378d67f13bcefe9aca
   })
 
   output$map1 <- renderPlotly({
