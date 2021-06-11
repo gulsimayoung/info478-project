@@ -4,7 +4,7 @@ library(ggplot2)
 library(readxl)
 library(prettydoc)
 library(stringr)
-
+library(usmap)
 # load data
 health_insurance_coverage <- read.csv("data/states.csv")
 
@@ -17,4 +17,6 @@ health_insurance_coverage <- rename(health_insurance_coverage,
                             uninsured_change=Uninsured.Rate.Change..2010.2015.,
                             avg_tax_2016=Average.Monthly.Tax.Credit..2016.,
                             expansion=State.Medicaid.Expansion..2016.)
+
+
 
