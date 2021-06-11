@@ -8,7 +8,7 @@ page_one <- tabPanel(
     very user-friendly.  With this website, we hope to present 
     information in an accessible way in order to highlight certain 
     trends in U.S. health insurance and how it differs from the 
-    system in other countries.  The Health Expenditure tab focuses on
+    system in other countries. The Health Expenditure tab focuses on
     presenting trends across the globe in how much funding is allocated
     to healthcare.  This provides global context for the U.S. system and 
     numbers.  The Health Coverage tab goes into more depth on the trends 
