@@ -3,11 +3,14 @@ library(shiny)
 library(plotly)
 library(ggplot2)
 library(stringr)
-
-# GHED_data <- read_excel("data/GHED_data.XLSX")
 library(usmap)
-GHED_data <- read_excel("data/GHED_data.XLSX")
+
+GHED_data <- read_excel("data/GHED_data_new.xlsx")
+# GHED_data <- data.frame("country" = GHED_data_file$country, "year" = GHED_data_file$year, 
+#                        "che_gdp" = GHED_data_file$che_gdp, "che_pc_usd" = GHED_data_file$che_pc_usd)
+# write_xlsx(GHED_data,"GHED_data_new.xlsx")
 unique_countries <- unique(GHED_data$country)
+
 # health insurance coverage data
 health_insurance_coverage <- read.csv("data/states.csv")
 health_insurance_coverage <- rename(health_insurance_coverage,
