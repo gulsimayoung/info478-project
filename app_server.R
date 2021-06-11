@@ -25,16 +25,17 @@ uninsured_2010 <- as.numeric(str_trim(
 uninsured_2015 <- as.numeric(str_trim(
   str_remove(health_insurance_coverage$uninsured_2015, "%")
 ))
-  str_remove(health_insurance_coverage$uninsured_2015, "%")
+str_remove(health_insurance_coverage$uninsured_2015, "%")
 
 medicaid <- health_insurance_coverage$expansion
 uninsured_2015_stripped <- as.numeric(str_trim(
-  str_remove(health_insurance_coverage$uninsured_2015, "%")))
+  str_remove(health_insurance_coverage$uninsured_2015, "%")
+))
 
 df <- data.frame(uninsured_2015_stripped, medicaid) %>%
   filter(medicaid == "True" | medicaid == "False") %>%
   group_by(medicaid) %>%
-  summarise(uninsured=mean(uninsured_2015_stripped))
+  summarise(uninsured = mean(uninsured_2015_stripped))
 
 # map data cleaning
 map_data <- health_insurance_coverage %>%
@@ -45,7 +46,7 @@ map_data$uninsured_2015 <- as.numeric(str_trim(
 ))
 map_data$state <- str_trim(map_data$State)
 
-server <- function(input, output) {
+server <- function(input, output, session) {
   output$chart <- renderPlotly({
     country_data <- GHED_data %>%
       filter(country == input$country_1 | country == input$country_2) %>%
@@ -153,10 +154,12 @@ server <- function(input, output) {
         y = "Medicaid Expansion", x = "Uninsured in 2015 (%)"
       )
 
-      ggplot(data=df, aes(x=uninsured, y=medicaid)) +
-      geom_col(fill="cornflowerblue", width=0.5) +
-      labs(title="Medicaid Expansion vs. Percent Uninsured",
-           y="Medicaid Expansion", x="Uninsured in 2015 (%)")
+    ggplot(data = df, aes(x = uninsured, y = medicaid)) +
+      geom_col(fill = "cornflowerblue", width = 0.5) +
+      labs(
+        title = "Medicaid Expansion vs. Percent Uninsured",
+        y = "Medicaid Expansion", x = "Uninsured in 2015 (%)"
+      )
   })
 
   output$map1 <- renderPlotly({
